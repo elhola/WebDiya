@@ -25,6 +25,16 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".WelcomeActivity"
+            android:label="Ласкаво просимо"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+
         <meta-data
             android:name="android.webkit.WebSettings.TextSize"
             android:value="NORMAL" />

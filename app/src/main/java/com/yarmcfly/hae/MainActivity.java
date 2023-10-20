@@ -2,7 +2,6 @@ package com.yarmcfly.hae;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
@@ -41,13 +40,15 @@ public class MainActivity extends AppCompatActivity {
                 String url = request.getUrl().toString();
                 if (url.startsWith("https://id.diia.gov.ua")) {
                     Toast.makeText(MainActivity.this, "Авторизація успішна", Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    startActivity(browserIntent);
+
+                    // Запустити WelcomeActivity після авторизації
+                    Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
+                    startActivity(intent);
                 }
-                return true;
+                return false;
             }
         });
+
 
         webView.loadUrl("https://id.diia.gov.ua");
     }
